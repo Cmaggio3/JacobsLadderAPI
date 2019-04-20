@@ -8,21 +8,14 @@ var connection = require("../database");
  var addNewUser = function(req,res, next){
  	var date = new Date();
     var post  = {
-      //first_name:req.body.first_name,
-      //last_name:req.body.last_name,
 	  UserID:req.body.UserID,
       email:req.body.email,
       password:md5(req.body.password),
 	  UserFirstName:req.body.userFirstName,
 	  UserLastName:req.body.userLastName,
 	  SecurityQuestion:req.body.securityQuestion,
-	  SecurityQuestionAnswer:md5(req.body.securityQuestionAnswer)
-      //dob:req.body.dob,
-      //latitude:req.body.latitude,
-      //longitude:req.body.longitude,
-      //device_type:req.body.device_type,
-      //device_token:req.body.device_token,
-     // time_zone:req.body.time_zone
+	  SecurityQuestionAnswer:md5(req.body.securityQuestionAnswer),
+	  IsAdmin:req.body.isAdmin
       
   };
   console.log(post);
