@@ -6,6 +6,8 @@ var md5 = require('MD5');
 var config = require('./config');
 var config = require('./database');  
 
+var cors = require('cors');
+
 var verifyToken = require('./middleware/verifyToken');
 var addNewUser = require('./middleware/addNewUser');
 var userLoginCheck = require('./middleware/userLoginCheck');
@@ -25,6 +27,8 @@ var port = process.env.PORT || 4200;
 var app  = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.options('*', cors())
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://master.d2ujsozju4zfn2.amplifyapp.com/#/"); // update to match the domain you will make the request from
