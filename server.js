@@ -46,7 +46,13 @@ app.listen(port, function() {
 });
 
 app.post('/signup', addNewUser);
-app.post('/userlogin', userLoginCheck);
+
+
+app.options('/userlogin', cors()) // enable pre-flight request for DELETE request
+app.post('/userlogin', cors(), userLoginCheck);
+
+
+
 app.post('/userSecurityQuestion',userSecurityQuestionCheck);
 
 
