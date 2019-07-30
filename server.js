@@ -25,6 +25,13 @@ var port = process.env.PORT || 4200;
 var app  = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://master.d2ujsozju4zfn2.amplifyapp.com/#/"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.listen(port, function() {
     console.log('Express server listening on port ' +port);
 });
